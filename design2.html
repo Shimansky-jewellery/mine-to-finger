@@ -5,22 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>From Mine to Finger – The Journey of a Shimansky Diamond</title>
 <style>
-:root{--ink:#111;--body:#1c1c1c;--muted:#5c5c5c;--line:#e3e3e3;--paper:#fff;--wash:#f4f4f2;--ph:#e4e4e2}
+:root{--ink:#111;--body:#1c1c1c;--muted:#5c5c5c;--line:#e3e3e3;--paper:#fff;--wash:#f5f5f3}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--body);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--body);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 img,video{max-width:100%;display:block}
-:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
-/* Header (mirrors shimansky.com) */
+/* ---------- Header (mirrors shimansky.com) ---------- */
 .site-header{border-top:3px solid #ddd;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:20}
 .bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px 16px}
 .brand{grid-column:2;display:block;text-decoration:none;font-weight:700;font-size:20px;letter-spacing:.24em;color:var(--ink)}
 .brand img{height:18px;width:auto}
 .tools{grid-column:3;justify-self:end;display:flex;align-items:center;gap:6px}
 .tools a,.menu-btn{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;background:none;border:0;color:var(--ink);cursor:pointer;text-decoration:none}
-.tools .country{display:none;font-size:12px;letter-spacing:.08em;padding:0 10px}
+.tools .country{display:none;font-size:12px;letter-spacing:.08em;gap:8px;padding:0 10px}
 .menu-btn{grid-column:1;justify-self:start}
 .icon{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .main-nav{display:none;border-top:1px solid var(--line)}
@@ -28,49 +27,50 @@ img,video{max-width:100%;display:block}
 .main-nav ul{list-style:none;margin:0;padding:8px 16px 16px}
 .main-nav a{display:block;padding:13px 0;text-decoration:none;text-transform:uppercase;font-size:14px;letter-spacing:.06em;color:var(--ink);border-bottom:1px solid var(--line)}
 .main-nav a[aria-current]{font-weight:700}
-.main-header{}
-/* Blog opening: hero + overlapping title card */
-.hero{height:min(60vw,720px);min-height:220px;background:#cfcccb center 84%/cover no-repeat}
-.article{max-width:1060px;margin:0 auto;background:#fff;position:relative;padding:28px 20px 8px}
-h1{margin:0 0 28px;font-weight:400;font-size:24px;line-height:1.3;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
-.intro{display:grid;gap:32px}
-.lede{margin:0 0 20px;font-weight:300;font-size:26px;line-height:1.35;color:var(--ink)}
-.intro p{margin:0 0 16px}
-.film{margin:0 auto;width:100%;max-width:300px}
-.film video{width:100%;aspect-ratio:9/16;background:#000}
-.film figcaption{margin-top:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:center}
 
-/* Journey */
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-.journey{position:relative;padding:64px 0}
-.journey svg.path{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:0}
-.journey svg.path path{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:.1 8}
-.step{position:relative;display:grid;grid-template-columns:36px 1fr;column-gap:16px;margin:0 0 72px}
+/* ---------- Blog layout (hero + overlapping title card) ---------- */
+.hero{height:min(60vw,720px);min-height:220px;background:#cfcccb center 84%/cover no-repeat}
+.article{max-width:972px;margin:0 auto;background:#fff;position:relative;padding:28px 20px 0}
+h1{margin:0 0 28px;font-weight:400;font-size:24px;line-height:1.3;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.article p{margin:0 0 20px}
+.lede{font-size:19px;line-height:1.55;color:var(--ink)}
+.step-img{margin:0 0 16px;aspect-ratio:4/3;background:#e6e6e6;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.step-img img{width:100%;height:100%;object-fit:cover}
+.film{margin:36px auto;max-width:340px}
+.film video{width:100%;aspect-ratio:9/16;background:#000}
+.film figcaption{margin-top:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:center}
+
+/* ---------- The journey ---------- */
+.journey{position:relative;margin:56px 0 0;padding:0}
+.journey svg.path{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.journey svg.path path{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-dasharray:.1 9}
+.step{position:relative;display:grid;grid-template-columns:1fr 56px;gap:16px;width:90%;margin:0 0 76px;align-items:start}
+.step:nth-of-type(even){margin-left:auto;grid-template-columns:56px 1fr}
+.step:nth-of-type(even) .badge{order:-1}
 .step:last-of-type{margin-bottom:0}
-.pic{grid-column:1/-1;margin:0 -20px 28px;aspect-ratio:4/5;background:var(--ph);position:relative;z-index:1;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.pic img{width:100%;height:100%;object-fit:cover}
-.badge{grid-column:1;width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;color:var(--ink);position:relative;z-index:1}
-.badge svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
-.txt{grid-column:2;min-width:0}
-.num{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:8px 0 10px}
-h2{margin:0 0 18px;font-weight:400;font-size:14px;line-height:1.5;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
-.lead{margin:0 0 18px;font-weight:300;font-size:23px;line-height:1.38;color:var(--ink)}
-.txt p{margin:0 0 16px}
-details summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;min-height:44px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink)}
+.badge{width:56px;height:56px;border-radius:50%;background:#fff;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;color:var(--ink);position:relative;z-index:1}
+.badge svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.step .txt{background:#fff;position:relative;z-index:1;padding:4px 0}
+.num{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+h2{margin:0 0 12px;font-weight:400;font-size:18px;line-height:1.35;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.step .lead{font-size:17px;line-height:1.6;color:var(--ink);margin:0 0 12px}
+details summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink)}
 details summary::-webkit-details-marker{display:none}
 details[open] summary{display:none}
-.slot{border:1px dashed #8a8a8a;padding:14px 16px;color:var(--muted);font-size:14px;margin:0 0 18px}
+details .more{padding-top:8px}
+details .more p{margin:0 0 16px}
+.slot{border:1px dashed #8a8a8a;padding:14px 16px;color:var(--muted);font-size:14px;margin:0 0 16px}
 
-/* Full-width interludes: one film line over a photograph */
-.band{background:#111 center/cover no-repeat;color:#fff;padding:96px 24px;text-align:center}
-.band p{max-width:21em;margin:0 auto;font-weight:300;font-size:24px;line-height:1.4}
-.band .btn{margin-top:36px}
-.btn{display:inline-block;padding:16px 30px;background:#fff;color:var(--ink);text-decoration:none;text-transform:uppercase;font-size:12px;letter-spacing:.2em}
-.btn:hover{background:#e9e9e9}
+/* ---------- Close ---------- */
+.close{margin:72px 0 0;padding:56px 20px;background:var(--wash);text-align:center}
+.close p{max-width:30em;margin:0 auto 28px;font-size:20px;line-height:1.5;letter-spacing:.04em;color:var(--ink)}
+.btn{display:inline-block;padding:16px 30px;background:var(--ink);color:#fff;text-decoration:none;text-transform:uppercase;font-size:13px;letter-spacing:.18em}
+.btn:hover{background:#333}
 footer{padding:28px 20px;text-align:center;font-size:13px;color:var(--muted)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
+/* ---------- Desktop ---------- */
 @media (min-width:900px){
-  body{font-size:15px}
   .bar{padding:20px 14px 6px}
   .brand{font-size:26px}.brand img{height:22px}
   .menu-btn{display:none}
@@ -78,26 +78,23 @@ footer{padding:28px 20px;text-align:center;font-size:13px;color:var(--muted)}
   .main-nav{display:block;border-top:0}
   .main-nav ul{display:flex;justify-content:center;gap:36px;padding:8px 16px 14px}
   .main-nav a{border:0;padding:8px 0;font-size:13px}
-  .article{margin-top:-64px;padding:44px 48px 8px}
-  h1{font-size:29px;margin-bottom:40px}
-  .intro{max-width:760px}
-  .lede{font-size:36px}
-  .journey{padding:110px 0}
-  .step{grid-template-columns:1.12fr 48px .88fr;column-gap:40px;align-items:start;margin-bottom:140px}
-  .step.flip{grid-template-columns:.88fr 48px 1.12fr}
-  .pic{grid-column:1;grid-row:1;margin:0;position:sticky;top:130px}
-  .badge{grid-column:2;grid-row:1;width:48px;height:48px;margin-top:6px}
-  .badge svg{width:22px;height:22px}
-  .txt{grid-column:3;grid-row:1}
-  .flip .pic{grid-column:3}.flip .txt{grid-column:1}
-  .num{margin-top:20px}
-  .lead{font-size:30px;margin-bottom:24px}
-  .band{padding:170px 24px}.band p{font-size:38px;line-height:1.3}
+  .article{margin-top:-64px;padding:40px 45px 0}
+  h1{font-size:29px;margin-bottom:36px}
+  body{font-size:14px}
+  .lede{font-size:18px}
+  .journey{margin-top:80px}
+  .step{width:60%;grid-template-columns:1fr 72px;gap:28px;margin-bottom:110px}
+  .step:nth-of-type(even){grid-template-columns:72px 1fr}
+  .badge{width:72px;height:72px}.badge svg{width:34px;height:34px}
+  h2{font-size:20px}
+  .step .lead{font-size:17px}
+  .close{padding:80px 20px}.close p{font-size:24px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
+
 <header class="site-header">
   <div class="bar">
     <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
@@ -127,72 +124,78 @@ footer{padding:28px 20px;text-align:center;font-size:13px;color:var(--muted)}
   </nav>
 </header>
 
+<!-- HERO IMAGE: swap the URL below for the chosen photograph -->
 <div class="hero" role="img" aria-label="Mine to Finger, Shimansky Diamonds: a polished diamond held in tweezers beside a white-gloved hand"
 style="background-image:url('https://drive.google.com/thumbnail?id=1YpcCiqjOgsrCGDWyGBml5DMLCWKPB8qK&sz=s1800')"></div>
-<main>
-<div class="article">
+<main class="article"> 
   <h1>From Mine to Finger – The Journey of a Shimansky Diamond</h1>
-  <div class="intro">
-    <div>
-      <p class="lede">What if you could follow the journey of your diamond from the very beginning?</p>
-      <p>At the heart of every Shimansky diamond, is a South African natural treasure, combined with the constant pursuit of perfection, passion, and innovation to maximize the brilliance and potential in every hand-selected diamond to deliver the most beautiful diamond you deserve.</p>
-    </div>
-  </div>
-</div>
 
-<div class="wrap"><section class="journey out">
+  <p class="lede">What if you could follow the journey of your diamond from the very beginning?</p>
+  <p>At the heart of every Shimansky diamond, is a South African natural treasure, combined with the constant pursuit of perfection, passion, and innovation to maximize the brilliance and potential in every hand-selected diamond to deliver the most beautiful diamond you deserve.</p>
+
+  
+
+  <section class="journey" id="journey" aria-label="The journey, stage by stage">
     <svg class="path" aria-hidden="true"><path d=""/></svg>
+
     <article class="step">
-      <figure class="pic"><img loading="lazy" src="https://drive.google.com/thumbnail?id=12Soww7Xp_F23wJk24vHaSzNJjJCjbdUX&sz=s1800" alt="A rough diamond held in tweezers among dark stones"></figure>
-      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 27 14 16 29 5 14 16 3z"/><path d="M5 14h22M16 3l-4 11 4 15 4-15-4-11"/></svg></div>
       <div class="txt">
         <span class="num">01 · Formation</span>
         <h2>More than 3 billion years ago</h2>
+    
+        <figure class="step-img">
+          <img src="https://drive.google.com/thumbnail?id=12Soww7Xp_F23wJk24vHaSzNJjJCjbdUX&sz=s1800" alt="A rough diamond held in tweezers among dark stones">
+        </figure>
         <p class="lead">More than 3 billion years ago, diamonds were formed under extreme heat and pressure, each one a natural creation, entirely unique.</p>
-        <details><summary>Read more</summary><div class="more">
-          <p>In the late 1800s, the first diamonds were found in South Africa's Northern Cape, shaping one of the most important diamond regions in the world.</p>
-        </div></details>
+        <p>In the late 1800s, the first diamonds were found in South Africa's Northern Cape, shaping one of the most important diamond regions in the world.</p>
       </div>
+      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 27 14 16 29 5 14 16 3z"/><path d="M5 14h22M16 3l-4 11 4 15 4-15-4-11"/></svg></div>
     </article>
-    <article class="step flip">
-      <figure class="pic"><img loading="lazy" src="https://drive.google.com/thumbnail?id=1K-8jnd1t59_58rVMHmbt94AZW2V1fMBg&sz=s1800" alt="The Big Hole diamond mine in Kimberley, South Africa"></figure>
-      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 29V11l8 7-1.500 4 6 2 1.500 5H3zM17 29h12"/><path d="M8 20.500l2.500 2.500L8 25.500 5.500 23z"/><path d="M15 12c2-5 8-8 14-7.500M21.500 6.500 28 20"/><path d="M9 6l1 3.500M13 5.500V9"/></svg></div>
+
+    <article class="step">
       <div class="txt">
         <span class="num">02 · The source</span>
         <h2>This is where the Shimansky journey begins</h2>
+       
+        <figure class="step-img">
+          <img src="https://drive.google.com/thumbnail?id=1K-8jnd1t59_58rVMHmbt94AZW2V1fMBg&sz=s1800" alt="The Big Hole diamond mine in Kimberley, South Africa">
+        </figure>
         <p class="lead">For decades, we have travelled back to Kimberley and South African mining regions to hand select our rough diamonds directly from the source.</p>
+        <p>All our diamonds are ethically sourced from mines that adhere to the Kimberley Process, ensuring responsible sourcing and full traceability.</p>
         <details><summary>Read more</summary><div class="more">
           <p>In the early days, Yair Shimansky was fascinated by the power of diamonds. The sparkling gems and their store of value was intriguing and mesmerizing. After few years of buying polished diamonds from local dealers, he was unsatisfied with the quality of the diamonds cut and polished. In 1998 Shimansky decided to travel to the diamond mines in Kimberley, South Africa, and buy rough diamonds directly from the mines. The first batch of diamonds was given to a local polisher who polished the diamonds for weight gain and not to maximize their brilliance. This is when Shimansky decided to enter the world of diamond cutting and polishing and setup the first Shimansky diamond polishing workshop in 1999, unique among jewelers to this day.</p>
         </div></details>
       </div>
+      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 29V11l8 7-1.500 4 6 2 1.500 5H3zM17 29h12"/><path d="M8 20.500l2.500 2.500L8 25.500 5.500 23z"/><path d="M15 12c2-5 8-8 14-7.500M21.500 6.500 28 20"/><path d="M9 6l1 3.500M13 5.500V9"/></svg></div>
     </article>
-</section></div>
 
-<section class="band">
-  <p>All our diamonds are ethically sourced from mines that adhere to the Kimberley Process, ensuring responsible sourcing and full traceability.</p>
-</section>
-<div class="wrap"><section class="journey in out">
-    <svg class="path" aria-hidden="true"><path d=""/></svg>
     <article class="step">
-      <figure class="pic"><img loading="lazy" src="https://drive.google.com/thumbnail?id=15wUilGGNKyM8d-iT9_7FhJYTe4CXROak&sz=s1800" alt="Hands examining a rough diamond through a jeweller's loupe"></figure>
-      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 10V4h6M22 4h6v6M28 22v6h-6M10 28H4v-6"/><path d="M16 9l6 6-6 9-6-9 6-6zM10 15h12"/></svg></div>
       <div class="txt">
         <span class="num">03 · The rough</span>
         <h2>We analyse each rough diamond</h2>
+      
+        <figure class="step-img">
+          <img src="https://drive.google.com/thumbnail?id=15wUilGGNKyM8d-iT9_7FhJYTe4CXROak&sz=s1800" alt="Hands examining a rough diamond through a jeweller's loupe">
+        </figure>
         <p class="lead">Using advanced technology, we analyse each rough diamond to understand its internal structure and determine how it can be cut to achieve its maximum potential.</p>
         <details><summary>Read more</summary><div class="more">
           <p>The Shimansky Diamond’s journey begins when only the top diamonds are hand-selected directly from the South African mines. The selection process can take up to five days. With specialized equipment such as laser mapping, 3D scanning combined with personal skills and experience, only the finest rough diamonds are selected for their potential to become a Shimansky diamonds, making their way to the Shimansky diamond cutting and polishing workshop situated in Cape Town, South Africa.</p>
           <p>Out of all the 4cs of diamond grading, the cut is the most influential factor on the diamond’s light behavior that affects its brilliance, fire, and scintillation.</p>
         </div></details>
       </div>
+      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 10V4h6M22 4h6v6M28 22v6h-6M10 28H4v-6"/><path d="M16 9l6 6-6 9-6-9 6-6zM10 15h12"/></svg></div>
     </article>
-    <article class="step flip">
-      <figure class="pic"><img loading="lazy" src="https://drive.google.com/thumbnail?id=1sEPexwL-LGJODwezQQh0zEVqV-nogLce&sz=s1800" alt="A pencil sketching a necklace design beside polished diamonds"></figure>
-      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M22 4l6 6L11 27l-7 1 1-7L22 4z"/><path d="M19 7l6 6M5 21l6 6"/></svg></div>
+
+    <article class="step">
       <div class="txt">
         <span class="num">04 · Design</span>
         <h2>Design Process</h2>
-        <p class="slot">[Design: wording on Mr Shimansky as designer, to be supplied by the Shimansky team]</p>
+      
+        <figure class="step-img">
+          <img src="https://drive.google.com/thumbnail?id=1sEPexwL-LGJODwezQQh0zEVqV-nogLce&sz=s1800" alt="A pencil sketching a necklace design beside polished diamonds">
+        </figure>
+   
+       
         <p class="lead">Less is more. Contemporary designs that stand out in the crowd.</p>
         <details><summary>Read more</summary><div class="more">
           <p>Effortless elegance and grace while maintaining precision and quality craftsmanship, each Shimansky jewellery creation is a statement of beauty and love. Shimansky creates beautifully designed &amp; crafted jewellery that helps celebrate those special moments and occasions in life.</p>
@@ -201,33 +204,34 @@ style="background-image:url('https://drive.google.com/thumbnail?id=1YpcCiqjOgsrC
           <p>In the modern world of today, Shimansky jewellery design the process is a combination of traditional practice and the latest advancement of 3D software that allows us to translate any design into a photorealistic creation for evaluation and if required to print the jewellery using a 3D raisin printer for a better feel before the jewellery is made.</p>
         </div></details>
       </div>
+      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M22 4l6 6L11 27l-7 1 1-7L22 4z"/><path d="M19 7l6 6M5 21l6 6"/></svg></div>
     </article>
+
     <article class="step">
-      <figure class="pic"><img loading="lazy" src="https://drive.google.com/thumbnail?id=1fFh4Z0lOdcFjsvRY4m0HT8R0sxEUjF8w&sz=s1800" alt="A diamond held against a spinning polishing wheel"></figure>
-      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 6h14l6 7-13 14L3 13l6-7z"/><path d="M3 13h26M12 13l4 14 4-14M9 6l3 7 4-7 4 7 3-7"/></svg></div>
       <div class="txt">
         <span class="num">05 · Cut &amp; polish</span>
         <h2>A Cut Above</h2>
-        <p class="lead">With the constant pursuit of perfection in everything we do, diamonds are no exception.</p>
+    
+        <figure class="step-img">
+          <img src="https://drive.google.com/thumbnail?id=1fFh4Z0lOdcFjsvRY4m0HT8R0sxEUjF8w&sz=s1800" alt="A diamond held against a spinning polishing wheel">
+        </figure>
+        <p class="lead">Throughout the entire process, a Shimansky Diamond undergoes more than 27 quality checks. This gives us full control over quality at every step of the process.</p>
         <details><summary>Read more</summary><div class="more">
-          <p>With years of experience in diamond cutting and polishing, Shimansky has designed and patented innovative diamond cuts that are superior in their brilliance and light performance compared to regular diamond cuts commonly used.</p>
+          <p>With the constant pursuit of perfection in everything we do, diamonds are no exception. With years of experience in diamond cutting and polishing, Shimansky has designed and patented innovative diamond cuts that are superior in their brilliance and light performance compared to regular diamond cuts commonly used.</p>
           <p>Every facet, angle, cut, polish, proportions, and other factors are considered by our diamond experts. With over 5 international diamond-cut patents, our experience and knowledge are second to none in the world of diamonds.</p>
         </div></details>
       </div>
+      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 6h14l6 7-13 14L3 13l6-7z"/><path d="M3 13h26M12 13l4 14 4-14M9 6l3 7 4-7 4 7 3-7"/></svg></div>
     </article>
-</section></div>
 
-<section class="band">
-  <p>Throughout the entire process, a Shimansky Diamond undergoes more than 27 quality checks. This gives us full control over quality at every step of the process.</p>
-</section>
-<div class="wrap"><section class="journey in">
-    <svg class="path" aria-hidden="true"><path d=""/></svg>
-    <article class="step flip">
-      <figure class="pic"><img loading="lazy" src="https://drive.google.com/thumbnail?id=1S_U0Hd7wtu0CMebhCbjSgztUriyMow6j&sz=s1800" alt="A Shimansky craftsman at the workbench setting a piece of jewellery"></figure>
-      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27 17 15M14 12l6 6M20 6l6 6-5 5-6-6 5-5z"/><path d="M24 22l4 4-2 2-4-4"/></svg></div>
+    <article class="step">
       <div class="txt">
         <span class="num">06 · Craft</span>
         <h2>Craft Process</h2>
+      
+        <figure class="step-img">
+          <img src="https://drive.google.com/thumbnail?id=1S_U0Hd7wtu0CMebhCbjSgztUriyMow6j&sz=s1800" alt="A Shimansky craftsman at the workbench setting a piece of jewellery">
+        </figure>
         <p class="lead">Once cut and polished, the diamond is entrusted to expert craftsmen who have dedicated their lives to the art.</p>
         <details><summary>Read more</summary><div class="more">
           <p>With a culture of love and passion every step of the way, Shimansky masters the art of making jewellery in every detail. With years of experience and constant learning, the art of jewellery making is preserved.</p>
@@ -235,13 +239,17 @@ style="background-image:url('https://drive.google.com/thumbnail?id=1YpcCiqjOgsrC
           <p>From shaping the metal, filing, polishing, soldering, drawing wires to diamond and gemstone setting, beautifully designed &amp; crafted jewellery is brought to life.</p>
         </div></details>
       </div>
+      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27 17 15M14 12l6 6M20 6l6 6-5 5-6-6 5-5z"/><path d="M24 22l4 4-2 2-4-4"/></svg></div>
     </article>
+
     <article class="step">
-      <figure class="pic"><img loading="lazy" src="https://drive.google.com/thumbnail?id=1fIKi90an6wAhgRIqzFLY1BDxXwSoMe7Y&sz=s1800" alt="A hand wearing a diamond ring" style="object-position:15% center"></figure>
-      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="20" r="8"/><path d="M12 8h8l2 3-6 5-6-5 2-3z"/><path d="M26 4v4M24 6h4"/></svg></div>
       <div class="txt">
         <span class="num">07 · Yours</span>
         <h2>From the South African mines to your finger</h2>
+
+        <figure class="step-img">
+          <img src="https://drive.google.com/thumbnail?id=1fIKi90an6wAhgRIqzFLY1BDxXwSoMe7Y&sz=s1800" alt="A hand wearing a diamond ring">
+        </figure>
         <p class="lead">The real art of jewellery is realized by its new owner.</p>
         <details><summary>Read more</summary><div class="more">
           <p>Every Shimansky creation is a miniature work of art that reflects the person who wears the jewellery, adding magic and joy to life.</p>
@@ -250,16 +258,16 @@ style="background-image:url('https://drive.google.com/thumbnail?id=1YpcCiqjOgsrC
           <p>A great diamond will retain its value and will appreciate with time while looking beautiful every day of your life, for you to enjoy and generations to come.</p>
         </div></details>
       </div>
+      <div class="badge"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="20" r="8"/><path d="M12 8h8l2 3-6 5-6-5 2-3z"/><path d="M26 4v4M24 6h4"/></svg></div>
     </article>
-</section></div>
+  </section>
+</main>
 
-
-<section class="band">
+<section class="close">
   <p>From the South African mines to your finger. This is the journey of a Shimansky diamond.</p>
 
   <a class="btn" href="https://shimansky.com/pages/book-diamond-experience">Book your diamond experience</a>
 </section>
-</main>
 
 <footer>© 2026 - Shimansky Jewellery</footer>
 
@@ -275,31 +283,28 @@ style="background-image:url('https://drive.google.com/thumbnail?id=1YpcCiqjOgsrC
   //  "Read more" on phones. function
   var wide=window.matchMedia('(min-width:900px)');
   function setDetails(){document.querySelectorAll('.step details').forEach(function(d){d.open=wide.matches;});}
-  setDetails(); wide.addEventListener('change',function(){setDetails();drawAll();});
+  setDetails(); wide.addEventListener('change',function(){setDetails();draw();});
 
-  // Dotted line runs downs
-  var js=[].slice.call(document.querySelectorAll('.journey'));
-  function draw(j){
+  // Dotted line runs down
+  var j=document.getElementById('journey'),path=j.querySelector('svg.path path');
+  function draw(){
     var r=j.getBoundingClientRect(),steps=[].slice.call(j.querySelectorAll('.step')),d='';
-    function c(el){var b=el.querySelector('.badge').getBoundingClientRect();return{x:b.left+b.width/2-r.left,t:b.top-r.top,b:b.bottom-r.top};}
-    if(j.classList.contains("in")){var f=c(steps[0]);d+='M'+f.x+' 0 L'+f.x+' '+f.t+' ';}
-    for(var i=0;i<steps.length;i++){
-      var a=c(steps[i]),s=steps[i].getBoundingClientRect(),yb=Math.max(a.b,s.bottom-r.top);
-      if(i<steps.length-1){
-        var n=c(steps[i+1]),g=n.t-yb;
-        d+='M'+a.x+' '+a.b+' L'+a.x+' '+yb+' C'+a.x+' '+(yb+g*.9)+' '+n.x+' '+(n.t-g*.9)+' '+n.x+' '+n.t+' ';
-      }else if(j.classList.contains("out")){
-        d+='M'+a.x+' '+a.b+' L'+a.x+' '+r.height+' ';
-      }
+    for(var i=0;i<steps.length-1;i++){
+      var a=steps[i].querySelector('.badge').getBoundingClientRect(),
+          b=steps[i+1].querySelector('.badge').getBoundingClientRect(),
+          s=steps[i].getBoundingClientRect();
+      var x1=a.left+a.width/2-r.left,y1=a.bottom-r.top,
+          yb=Math.max(y1,s.bottom-r.top),
+          x2=b.left+b.width/2-r.left,y2=b.top-r.top,g=y2-yb;
+      d+='M'+x1+' '+y1+' L'+x1+' '+yb+' C'+x1+' '+(yb+g*.95)+' '+x2+' '+(y2-g*.95)+' '+x2+' '+y2+' ';
     }
-    j.querySelector('svg.path path').setAttribute('d',d);
+    path.setAttribute('d',d);
   }
-  function drawAll(){js.forEach(draw);}
-  drawAll();
-  window.addEventListener('load',drawAll);
-  window.addEventListener('resize',drawAll);
-  document.addEventListener('toggle',drawAll,true);
-  if(window.ResizeObserver){var ro=new ResizeObserver(drawAll);js.forEach(function(j){ro.observe(j);});}
+  draw();
+  window.addEventListener('load',draw);
+  window.addEventListener('resize',draw);
+  j.addEventListener('toggle',draw,true);
+  if(window.ResizeObserver){new ResizeObserver(draw).observe(j);}
 })();
 </script>
 </body>
