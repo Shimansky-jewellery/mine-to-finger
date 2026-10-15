@@ -32,7 +32,7 @@ img,video{max-width:100%;display:block}
 /* Header (copy of nav  */
 .site-header{border-top:3px solid #ddd;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:30}
 .bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:10px 12px}
-.brand{grid-column:2;text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.24em}
+.brand{grid-column:2;display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.24em}
 .brand img{height:18px;width:auto}
 .tools{grid-column:3;justify-self:end;display:flex;align-items:center}
 .tools a,.menu-btn{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;background:none;border:0;color:var(--ink);cursor:pointer;text-decoration:none}
@@ -48,7 +48,8 @@ img,video{max-width:100%;display:block}
 .main-nav a[aria-current]{font-weight:700}
 
 /* Chapter navigation */
-.chapters{position:sticky;top:var(--hh,69px);z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.chapters{position:fixed;left:0;right:0;top:var(--hh,69px);z-index:20;background:#fff;border-bottom:1px solid var(--line);transform:translateY(-100%);opacity:0;visibility:hidden;transition:transform .3s,opacity .3s,visibility 0s .3s}
+.chapters.show{transform:none;opacity:1;visibility:visible;transition:transform .3s,opacity .3s,visibility 0s}
 .chapters ol{list-style:none;margin:0;padding:0 8px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;counter-reset:c}
 .chapters ol::-webkit-scrollbar{display:none}
 .chapters li{flex:none;counter-increment:c}
@@ -78,7 +79,7 @@ figcaption{font-size:14px;line-height:1.4;margin-top:10px}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:28px}
 
 /* 0 Hero */
-.hero-media{height:72vh;min-height:360px;max-height:820px;background:#a4a4a4;color:#000}
+.hero-media{height:44vh;min-height:260px;max-height:820px;background:#a4a4a4;color:#000}
 .hero-text{padding-top:28px;padding-bottom:8px}
 .hero h1{font-size:36px;line-height:1.1;margin-bottom:16px}
 .hero .sub{font-size:20px;line-height:1.4;margin-bottom:20px}
@@ -90,7 +91,7 @@ figcaption{font-size:14px;line-height:1.4;margin-top:10px}
 .earth2{background:var(--earth2);color:var(--sand)}
 .earth .chapter-no,.earth2 .chapter-no,.earth .foryou span,.earth2 .foryou span{color:var(--ochre)}
 .earth figcaption,.earth2 figcaption{color:var(--sandmuted)}
-.steel{background:#fff)}
+.steel{background:#fff}
 .steel figcaption{color:var(--muted)}
 .night{background:var(--night);color:#e9e9e9}
 .night figcaption{color:#a8a8a8}
@@ -157,6 +158,7 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
   .wrap{padding:0 32px}
   .hero-text{padding-top:48px;padding-bottom:8px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px 64px;align-items:start}
   .hero-text .trust{grid-column:1/-1}
+  .hero-media{height:72vh;min-height:360px}
   .hero h1{font-size:56px}
   .ch{padding:110px 0}
   h2{font-size:44px}
@@ -177,7 +179,7 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
   .sticky{display:none}
   body.has-sticky{padding-bottom:0}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky,.chapters,.chapters.show{transition:none}}
 </style>
 </head>
 <body>
@@ -213,9 +215,9 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
 
 <main>
 
-<!-- 0. HERO -->
+<!-- 0. Hero -->
 <section class="hero" id="top">
-  <!-- ASSET: rough-diamond-in-hand-shimansky.webp (poster, do not lazy-load) then 6–8 s loop dissolving to the polished diamond in the same hand -->
+  <!-- ASSET: rough-diamond-in-hand-shimansky.webp ,poster, do not lazy-load, then 6–8 s loop dissolving to the polished diamond in the same hand -->
   <div class="hero-media ph" role="img" aria-label="A rough South African diamond held in an open hand">[Photo: rough diamond in an open hand, dissolving to the polished diamond]</div>
   <div class="wrap hero-text">
     <div>
@@ -224,7 +226,7 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
     </div>
     <div>
       <p class="sub">Natural South African diamonds, hand-selected at the source and cut in our Cape Town workshop.</p>
-      <p>Shimansky is a Cape Town jeweller that has hand-selected rough diamonds at the source in South Africa since 1998, mostly from the alluvial diggings of the Northern Cape around Kimberley and the <span class="tbc">[Vaal and Orange]</span> rivers, and has cut and polished them in its own Cape Town workshop since 1999. Its over 15 patented diamond cuts, including My Girl® and Brilliant 10®, are designed to release a diamond's light rather than keep its weight.</p>
+      <p>Shimansky is a Cape Town jeweller that has hand-selected rough diamonds at the source in South Africa since 1998, mostly from the alluvial diggings of the Northern Cape around Kimberley and the <span class="">[Vaal and Orange]</span> rivers, and has cut and polished them in its own Cape Town workshop since 1999. Its over 15 patented diamond cuts, including My Girl® and Brilliant 10®, are designed to release a diamond's light rather than keep its weight.</p>
       <div class="actions">
         <a class="btn" href="https://shimansky.com/pages/book-diamond-experience">Book your Diamond Experience</a>
         <a class="link" href="#ch1">Explore the journey</a>
@@ -235,12 +237,13 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
       <li>Cut in Cape Town since 1999</li>
       <li>Over 15 patented cuts</li>
       <li>GIA-graded diamonds</li>
-      <li><span class="tbc">[RJC certified]</span></li>
+      <li><span class="">[RJC certified]</span></li>
     </ul>
   </div>
 </section>
 
-<nav class="chapters" aria-label="Chapters">
+<div id="chapters-start" aria-hidden="true"></div>
+<nav class="chapters" id="chapters" aria-label="Chapters">
   <ol>
     <li><a href="#ch1">Origins</a></li>
     <li><a href="#ch2">The source</a></li>
@@ -249,7 +252,7 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
   </ol>
 </nav>
 
-<!-- 1. ORIGINS (earth) -->
+<!-- 1. Origins earth -->
 <section class="ch earth" id="ch1" aria-labelledby="h1-ch1">
   <div class="wrap">
     <p class="chapter-no"><b>Chapter 01</b><span>Northern Cape</span></p>
@@ -258,20 +261,20 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
     <figure class="illus">
       <!-- ASSET: kimberlite pipe cross-section illustration, drawn by the designer -->
       <div class="ph illus-ph" role="img" aria-label="Illustration: a kimberlite pipe carries diamonds to the surface; rivers carry them downstream into ancient gravel beds">[Illustration: kimberlite pipe cross-section. A volcanic kimberlite pipe on the left, a river carrying diamonds downstream on the right, and the rough settling in ancient gravel beds]</div>
-      <figcaption>Illustration, not to scale.</figcaption>
+      <figcaption>Illustration</figcaption>
     </figure>
 
     <div class="split">
       <div class="measure">
         <p>Natural diamonds form deep within the earth and reach the surface through volcanic kimberlite pipes. South Africa's first diamonds were found in the Northern Cape in the 1860s, and Kimberley became the centre of the modern diamond world.</p>
-        <p>Over millions of years, rivers wore away some of those pipes and carried the diamonds downstream into ancient gravel beds along the <span class="tbc">[Vaal and Orange]</span> rivers. Most Shimansky diamonds come from these alluvial deposits. The river journey tends to break weaker stones, which is why alluvial deposits are known for a high proportion of gem-quality diamonds.</p>
+        <p>Over millions of years, rivers wore away some of those pipes and carried the diamonds downstream into ancient gravel beds along the <span class="">[Vaal and Orange]</span> rivers. Most Shimansky diamonds come from these alluvial deposits. The river journey tends to break weaker stones, which is why alluvial deposits are known for a high proportion of gem-quality diamonds.</p>
         <div class="actions">
           <a class="link" href="https://capetowndiamondmuseum.org">Cape Town Diamond Museum</a>
           <a class="link" href="https://shimansky.com/pages/learn-about-diamonds">How diamonds are graded: the 4Cs</a>
         </div>
         <div class="foryou"><span>For you</span><p>Your diamond's story begins in a real place you can name, and visit.</p></div>
       </div>
-      <!-- ASSET: south-african-alluvial-rough-diamonds.mp4 (6–8 s muted loop + full version) -->
+      <!-- ASSET: south-african-alluvial-rough-diamonds.mp4 -->
       <figure>
         <div class="ph" role="img" aria-label="Alluvial diamond digging footage, Northern Cape">[Footage: alluvial digging, Northern Cape]</div>
         <figcaption>Alluvial diggings, Northern Cape, [year]</figcaption>
@@ -280,7 +283,7 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
   </div>
 </section>
 
-<!-- 2. THE SOURCE (earth) -->
+<!-- 2. The Source earth -->
 <section class="ch earth2" id="ch2" aria-labelledby="h1-ch2">
   <div class="wrap">
     <p class="chapter-no"><b>Chapter 02</b><span>Kimberley, since 1998</span></p>
@@ -290,9 +293,9 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
         <p>In 1998 our founder travelled to Kimberley and the river diggings to hand-select rough diamonds that meet the Shimansky standard. We still do. Most of our rough comes from alluvial diggings in the ancient riverbeds of the Northern Cape, and selecting a single diamond can take up to two days.</p>
         <p>South Africa takes part in the Kimberley Process, the international certification for conflict-free rough diamonds. We go further: we select the rough ourselves, cut it in our own workshop, and keep one chain of custody all the way to Cape Town.</p>
       </div>
-      <!-- ASSET: yair-shimansky-northern-cape-diggings.webp -->
+      <!-- ASSET: mr shimansky -->
       <figure class="portrait">
-        <div class="ph" role="img" aria-label="Yair Shimansky examining rough diamonds at [operation], Northern Cape">[Photo: founder at the diggings]</div>
+        <div class="ph" role="img" aria-label="Yair Shimansky examining rough diamonds at [operation], Northern Cape">[Photo: Mr Shimansky at the digging site]</div>
         <figcaption>Yair Shimansky, Founder, at <span class="tbc">[operation]</span>, Northern Cape, <span class="tbc">[year]</span></figcaption>
       </figure>
     </div>
@@ -317,16 +320,16 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
   </div>
 </section>
 
-<!-- 3. READING THE ROUGH (workshop steel) -->
+<!-- 3. reading the rough (workshop steel) -->
 <section class="ch steel" id="ch3" aria-labelledby="h1-ch3">
   <div class="wrap">
     <p class="chapter-no"><b>Chapter 03</b><span>The Cape Town workshop</span></p>
     <h2 id="h1-ch3" class="measure">How do we decide how to cut a rough diamond?</h2>
     <p class="measure">Before a single facet is cut, every rough diamond is studied in our Cape Town workshop. We are looking for one answer: where is the light in this stone, and how do we release it?</p>
     <ol class="steps">
-      <li><div class="ph" role="img" aria-label="Rough diamond under a jeweller's loupe">[Photo: loupe close-up]</div><h3>Read the skin.</h3><p>Under a jeweller's loupe, we inspect the outer surface for anything that reaches from the surface into the stone.</p></li>
-      <li><div class="ph" role="img" aria-label="A small polished window on a rough diamond">[Photo: polished window]</div><h3>Open small windows.</h3><p>We polish a few tiny windows on the rough so we can see inside it.</p></li>
-      <li><div class="ph" role="img" aria-label="Inclusions seen through a polished window">[Photo: inside the rough]</div><h3>Map the inside.</h3><p>Through those windows we find inclusions and anything that could remain in the polished shape we are planning.</p></li>
+      <li><div class="ph" role="img" aria-label="A rough diamond held in the hand">[Photo: rough in hand]</div><h3>Read the skin.</h3><p>Under a jeweller's loupe, we inspect the outer surface for anything that reaches from the surface into the stone.</p></li>
+      <li><div class="ph" role="img" aria-label="A rough diamond under a jeweller's loupe">[Photo: loupe close-up]</div><h3>Open small windows.</h3><p>We polish a few tiny windows on the rough so we can see inside it.</p></li>
+      <li><div class="ph" role="img" aria-label="A small polished window on a rough diamond">[Photo: polished window]</div><h3>Map the inside.</h3><p>Through those windows we find inclusions and anything that could remain in the polished shape we are planning.</p></li>
       <li><div class="ph" role="img" aria-label="Rough diamond beside its 3D scan">[Photo: rough beside its 3D scan]</div><h3>Scan in 3D.</h3><p>The rough is 3D-scanned to model the polished diamonds it could become.</p></li>
       <li><div class="ph" role="img" aria-label="A marker line showing where the table will sit">[Photo: marker line for the table]</div><h3>Place the table.</h3><p>We decide where the diamond's top face will sit, and whether to saw or polish from there. This decision sets the course of the entire cut.</p></li>
     </ol>
@@ -342,7 +345,7 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
     <p class="chapter-no"><b>Chapter 04</b><span>Why would a cutter saw a rough diamond in two?</span></p>
     <h2 id="h1-ch4">One rough diamond. Two diamonds.</h2>
   </div>
-  <!-- ASSET: one-rough-diamond-sawn-in-two-cape-town.mp4, 30–45 s, controls + captions + poster -->
+  <!-- ASSET: one-rough-diamond-sawn-in-two-cape-town.mp4 -->
   <figure class="film">
     <div class="film-wrap"><div class="ph" role="img" aria-label="Two pieces of one rough diamond after sawing at the Shimansky workshop">[Film: rough, scan, saw, two halves]</div></div>
     <div class="wrap">
@@ -362,16 +365,16 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
         <div class="actions"><a class="btn light" href="https://shimansky.com/pages/book-diamond-experience">See the craftsmanship in person</a></div>
         <div class="foryou"><span>For you</span><p>We will give up size when beauty is better served. The same judgement goes into your diamond.</p></div>
       </div>
-      <!-- Evidence card: leave out any row that has no value yet -->
+      <!-- Evidence card  -->
       <aside class="card" aria-label="Evidence card">
         <h3>This diamond</h3>
         <dl>
-          <dt>Rough ID</dt><dd>[ ]</dd>
-          <dt>Source region</dt><dd>[ ]</dd>
-          <dt>Rough weight</dt><dd>[ ]</dd>
-          <dt>Plans considered</dt><dd>[ ]</dd>
-          <dt>Finished weights and grades</dt><dd>[ ]</dd>
-          <dt>GIA report numbers</dt><dd>[ ]</dd>
+          <dt>Rough ID</dt><dd>|</dd>
+          <dt>Source region</dt><dd>|</dd>
+          <dt>Rough weight</dt><dd>|</dd>
+          <dt>Plans considered</dt><dd>|</dd>
+          <dt>Finished weights and grades</dt><dd>|</dd>
+          <dt>GIA report numbers</dt><dd>|</dd>
         </dl>
       </aside>
     </div>
@@ -380,7 +383,7 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
 
 </main>
 
-<footer class="site">Chapters 5 to 12 follow in the next round. © 2026 - Shimansky Jewellery</footer>
+<footer class="site">"Chapters 5 to 12 follow in the next round."</footer>
 
 <div class="sticky" id="sticky" aria-hidden="true">
   <a class="btn" href="https://shimansky.com/pages/book-diamond-experience" tabindex="-1">Book</a>
@@ -395,13 +398,15 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
     btn.setAttribute('aria-expanded',open);
     btn.setAttribute('aria-label',open?'Close menu':'Open menu');
   });
-  // Keep the chapter bar directly under the header, whatever height the header is.
+  // Keep the chapter bar directly under the header, whatever height the header is
   var header=document.querySelector('.site-header');
   function setHH(){document.documentElement.style.setProperty('--hh',header.offsetHeight+'px');}
   setHH(); window.addEventListener('resize',setHH); window.addEventListener('load',setHH);
   if(window.ResizeObserver){new ResizeObserver(setHH).observe(header);}
   if(!('IntersectionObserver' in window)) return;
-  // Sticky Book bar on phones: appears once the hero has scrolled away.
+  
+  // sticky book bar on phones: appears once the hero has scrolled away.
+  
   var sticky=document.getElementById('sticky');
   new IntersectionObserver(function(e){
     var show=!e[0].isIntersecting;
@@ -410,7 +415,14 @@ footer.site{padding:28px 16px;text-align:center;font-size:14px;color:var(--muted
     sticky.setAttribute('aria-hidden',!show);
     sticky.querySelectorAll('a').forEach(function(a){a.tabIndex=show?0:-1;});
   }).observe(document.querySelector('.hero'));
+ 
+  // Chapter bar: this hide the nav bar chapters 
+  var bar=document.getElementById('chapters'),start=document.getElementById('chapters-start');
+  function checkBar(){bar.classList.toggle('show',start.getBoundingClientRect().top<=header.offsetHeight);}
+  checkBar(); window.addEventListener('scroll',checkBar,{passive:true}); window.addEventListener('resize',checkBar);
+ 
   // Chapter navigation marks the chapter in view.
+  
   var links=[].slice.call(document.querySelectorAll('.chapters a'));
   var io=new IntersectionObserver(function(es){es.forEach(function(en){
     if(!en.isIntersecting) return;
