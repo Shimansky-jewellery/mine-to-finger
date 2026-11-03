@@ -490,3 +490,21 @@ faqs.forEach(f => {
 </script>
 </body>
 </html>
+
+<style>
+  /* Gifting page only: pin lifestyle tile titles to the bottom edge */
+  .lifestyle-overlay.lifestyle-overlay--bottom_center {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    padding: 0 12px 18px !important;
+  }
+  .lifestyle-overlay--bottom_center .lifestyle-heading:empty { display: none !important; }
+  .lifestyle-overlay--bottom_center .lifestyle-heading,
+  .lifestyle-overlay--bottom_center .lifestyle-subheading { margin: 0 !important; }
+  .lifestyle-overlay--bottom_center .lifestyle-subheading { text-shadow: 0 1px 6px rgba(0,0,0,.45); }
+  @media only screen and (max-width: 600px) {
+    .lifestyle-overlay.lifestyle-overlay--bottom_center { padding: 0 8px 10px !important; }
+  }
+</style>
